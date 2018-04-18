@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Image Colorization</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://rawgit.com/adrotec/knockout-file-bindings/master/knockout-file-bindings.css'>
+    <link rel="stylesheet" href="static/style1.css">
+</head>
+
+<body>
+   
+    <div class="container text-center">
+        <h1>   UPLOAD IMAGE
+         </h1>
+             <div class="row">
+             <div class="col-sm-6" style="margin-top:30%">
+             
+                 
+                 <div class="well" data-bind="fileDrag: fileData">
+                <div class="form-group row">
+                    
+                    <div class="col-md-6">
+                        <img style="height: 125px;" class="img-rounded  thumb" data-bind="attr: { src: fileData().dataURL }, visible: fileData().dataURL">
+                        <div data-bind="ifnot: fileData().dataURL">
+                            <label class="drag-label">Drag file here</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                       <form  action="/upload" method="post" enctype="multipart/form-data" >
+                            <input type="file" name="image" data-bind="fileInput: fileData, customFileInput: {
+                               buttonClass: 'btn btn-success', fileNameClass: 'disabled form-control',onClear: onClear,}"
+                                    accept="image/*">    
+         <div class="container ">
+            <input type='submit'  value='Upload Your Image' class="btn btn-primary">
+          </div> 
+                        
+       </form>
+        </div>
+        
+       <!--onClick="location.href='index2.html'"-->
+    
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
+<script src='https://rawgit.com/adrotec/knockout-file-bindings/master/knockout-file-bindings.js'></script>
+ <script  src="static/index1.js"></script>
+</body>
+
+</html>
+
